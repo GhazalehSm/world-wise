@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  useContext,
-  useReducer,
-} from "react";
+import { createContext, useEffect, useContext, useReducer } from "react";
 
 const BASE_URL = "http://localhost:8000";
 
@@ -40,19 +34,19 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        cities: [...state.cities, action.paylaod],
+        cities: [...state.cities, action.payload],
       };
     case "city/deleted":
       return {
         ...state,
         isLoading: false,
-        cities: state.cities.filter((city) => city.id !== action.paylaod),
+        cities: state.cities.filter((city) => city.id !== action.payload),
       };
     case "rejected":
       return {
         ...state,
         isLoading: false,
-        error: action.paylaod,
+        error: action.payload,
       };
     default:
       throw new Error("Unknown action type");
@@ -71,11 +65,11 @@ function CitiesProvider({ children }) {
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        dispatch({ type: "cities/loaded", paylaod: data });
+        dispatch({ type: "cities/loaded", payload: data });
       } catch {
         dispatch({
           type: "rejected",
-          paylaod: "There was an error loading the cities.",
+          payload: "There was an error loading the cities.",
         });
       }
     }
@@ -92,7 +86,7 @@ function CitiesProvider({ children }) {
     } catch {
       dispatch({
         type: "rejected",
-        paylaod: "There was an error loading the city.",
+        payload: "There was an error loading the city.",
       });
     }
   }
@@ -108,11 +102,11 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
-      dispatch({ type: "city/created", paylaod: data });
+      dispatch({ type: "city/created", payload: data });
     } catch {
       dispatch({
         type: "rejected",
-        paylaod: "There was an error creating the city.",
+        payload: "There was an error creating the city.",
       });
     }
   }
@@ -123,11 +117,11 @@ function CitiesProvider({ children }) {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-      dispatch({ type: "city/deleted", paylaod: id });
+      dispatch({ type: "city/deleted", paypayloadlaod: id });
     } catch {
       dispatch({
         type: "rejected",
-        paylaod: "There was an error deleting the city.",
+        payload: "There was an error deleting the city.",
       });
     }
   }

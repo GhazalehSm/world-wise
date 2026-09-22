@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Gemeente Westland",
+      "country": "Netherlands",
+      "emoji": "🇳🇱",
+      "date": "2026-09-22T10:24:07.343Z",
+      "notes": "",
+      "position": {
+        "lat": "52.01468855419019",
+        "lng": "4.2809563572996945"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Lleida",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-09-22T10:24:35.135Z",
+      "notes": "",
+      "position": {
+        "lat": "41.55978371763109",
+        "lng": "0.6525730191184299"
+      },
+      "id": 98443199
     }
   ]
 }
